@@ -12,5 +12,4 @@ if __name__ == "__main__":
         writer = csv.writer(CVSfile, delimiter=',', quoting=QUOTE_ALL)
         for line in todos:
             writer.writerow([id, user.get('username'),
-                           task.get('completed'), task.get('title')])
-
+                            task.get('completed'), task.get('title')])

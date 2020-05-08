@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""export data in the CSV format
+"""
+import csv
 import requests
 import sys
 if __name__ == "__main__":
@@ -9,7 +12,7 @@ if __name__ == "__main__":
     todos = requests.get("https://jsonplaceholder.typicode.com/todos?userId={}"
                          .format(id)).json()
     with open("{}.csv".format(id), 'w') as CVSfile:
-        writer = csv.writer(CVSfile, delimiter=',', quoting=QUOTE_ALL)
+        writer = csv.writer(CVSfile, delimiter=',', quoting=csv.QUOTE_ALL)
         for line in todos:
             writer.writerow([id, user.get('username'),
-                            task.get('completed'), task.get('title')])
+                            line.get('completed'), line.get('title')])
